@@ -1,0 +1,20 @@
+<view class="emptyContainer" hidden="{{!isEmpty}}">
+  <image class="emptyImage" src="{{emptyUrl}}" mode="widthFix"></image>
+  <text class="emptyPrompt">快去制作属于自己的作品吧!</text>
+</view>
+
+<view hidden="{{!hasPhoto}}">
+  <recycle-view scroll-y="true" style="height:{{scrollH}}px;" batch="{{batchSetRecycleData}}" id="recycleId">
+    <recycle-item wx:for="{{images}}" wx:key="id" id="{{item.id}}">
+      <view>
+        <image class="imageItem" src='{{item.url}}' mode="widthFix"></image>
+        <text class="timeItem">{{item.createTime}}</text>
+      </view>
+    </recycle-item>
+    <!-- <view class="load_more" hidden="{{!loading}}">
+      <view class="load_loading"></view>
+      <view class="load-tips">正在拼命加载...</view>
+    </view>
+    <view class="load_end" hidden="{{!loaded}}">没有更多数据了...</view> -->
+  </recycle-view>
+</view>

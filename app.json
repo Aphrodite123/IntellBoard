@@ -1,0 +1,23 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/takePhoto/takePhoto",
+    "pages/showPhoto/showPhoto",
+    "pages/scanPhoto/scanPhoto"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#eaeaea",
+    "navigationBarTitleText": "米家小黑板",
+    "navigationBarTextStyle": "black"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true,
+  "navigateToMiniProgramAppIdList": [
+    "wxe59df6f1d39a8157"
+  ],
+  "sitemapLocation": "sitemap.json"
+}

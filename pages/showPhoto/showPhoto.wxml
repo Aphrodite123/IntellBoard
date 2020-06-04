@@ -1,0 +1,21 @@
+<!-- showPhoto.wxml -->
+<canvas canvas-id="myCanvas"></canvas>
+<movable-area class='photoContainer' style="width:{{movableWidth}}px;height:{{movableHeight}}px;" scale-area hidden="{{hidden}}">
+  <movable-view class="photoView" direction="all" bindchange="onChange" bindscale="onScale" scale scale-min="1" scale-max="4" scale-value="1">
+    <image src='{{url}}' mode='widthFix'></image>
+  </movable-view>
+</movable-area>
+
+<view class="bottom;">
+
+  <view class="buttonBg" style="flex:1;">
+    <image class="button" src='{{switchUrl}}' mode="scaleToFill" style="flex:1;"> </image>
+    <text class="switchText" bindtap='onSelectPhoto' style="flex:1;">更换图片</text>
+  </view>
+
+  <view class="buttonBg" style="flex:1;">
+    <image class="buttonRight" src='{{saveUrl}}' mode="scaleToFill" style="flex:1;"> </image>
+    <text class="saveText" bindtap='onSavePhoto' style="flex:1;">保存图片</text>
+  </view>
+
+</view>

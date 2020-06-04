@@ -1,0 +1,110 @@
+page {
+  height: 100%;
+  background-color: #eaeaea;
+}
+
+movable-area {
+  height: 88vw;
+  width: 88vw;
+  overflow: hidden;
+}
+
+movable-view {
+  position: absolute;
+}
+
+image {
+  width: 88vw;
+  height: 88vw;
+}
+
+canvas {
+  width: 100vw;
+  height: 100vw;
+  position: fixed;
+  left: 6vw;
+  margin-left: 6vm;
+}
+
+.photoContainer {
+  left: 6vw;
+  margin-left: 6vm;
+  margin-top: 8vw;
+}
+
+.photoView {
+  width: 100vw;
+  height: 100vw;
+}
+
+.bottom {
+  flex-direction: row;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  bottom: 15vh;
+}
+
+.buttonBg {
+  position: relative;
+  flex-direction: row;
+  flex-grow: 1;
+  bottom: 15vh;
+}
+
+.button {
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.buttonRight {
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  margin-left: -10px;
+}
+
+.switchText {
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  color: #7537ff;
+  font-size: 16px;
+  left: 0;
+  top: 24px;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: none;
+  flex-grow: 1;
+}
+
+.saveText {
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  color: white;
+  font-size: 16px;
+  left: 0;
+  top: 24px;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: none;
+  flex-grow: 1;
+  margin-left: -10px;
+}
