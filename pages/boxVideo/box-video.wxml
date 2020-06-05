@@ -1,0 +1,19 @@
+<!--pages/boxVideo/boxVideo.wxml-->
+<view class="page-body">
+	<view class="root">
+		<video class="video {{isShowShare?'visibility-hidden':''}}" id="myVideo" src="http://media.jiqid.com/video/test/%E6%88%91%E7%9A%84%E5%BD%B1%E7%89%87spacemovie-vertical.mp4" autoplay="true" binderror="videoErrorCallback" enable-danmu danmu-btn controls></video>
+		<view class="btn-area {{isShowShare?'visibility-hidden':''}}">
+			<button bindtap="goLotto" class="page-body-button" type="primary">抽奖</button>
+			<button bindtap="goShare" class="page-body-button" type="primary">分享</button>
+		</view>
+
+		<!-- <canvas class="bg-image {{isShowShare?'':'visibility-hidden'}}" canvas-id='shareCanvas'></canvas> -->
+
+		<image class="bg-image {{isShowShare?'':'visibility-hidden'}}" src="{{picUrl}}"></image>
+
+		<view class="btn-area  {{isShowShare?'':'visibility-hidden'}}">
+			<button class="page-body-button" type="primary" bindtap="saveImage">保存并分享</button>
+		</view>
+
+	</view>
+</view>

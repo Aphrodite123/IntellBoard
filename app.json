@@ -3,7 +3,10 @@
     "pages/index/index",
     "pages/takePhoto/takePhoto",
     "pages/showPhoto/showPhoto",
-    "pages/scanPhoto/scanPhoto"
+    "pages/scanPhoto/scanPhoto",
+    "pages/boxVideo/box-video",
+    "pages/boxImage/box-image",
+    "pages/boxLotto/box-lotto"
   ],
   "window": {
     "backgroundTextStyle": "light",

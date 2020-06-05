@@ -1,0 +1,26 @@
+	<view class="login-root">
+		<text class="login-title">登录</text>
+	</view>
+
+	<view class="page-root">
+		<text class="save-image-text">账号</text>
+
+		<view class="weui-cells weui-cells_after-title">
+			<view class="weui-cell weui-cell_input">
+				<input class="weui-edit" auto-focus placeholder="请输入手机号" />
+			</view>
+		</view>
+
+		<text class="save-image-text">验证码</text>
+
+		<view class="weui-cells weui-cells_after-title">
+			<view class="weui-cell weui-cell_input">
+				<input class="weui-edit" placeholder="请输入验证码" />
+			</view>
+		</view>
+
+		<view class="btn-area">
+			<button bindtap="goLotto" class="page-body-button page-body-button-margin-top" type="primary">提交</button>
+		</view>
+
+	</view>

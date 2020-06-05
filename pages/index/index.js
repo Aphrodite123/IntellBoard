@@ -8,6 +8,7 @@ import {
 
 //获取应用实例
 const app = getApp();
+const QRCode = require('../../utils/weapp-qrcode');
 
 Page({
 
@@ -26,9 +27,9 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     wx.getSystemInfo({
-      success: function(res) {
+      success: function (res) {
         app.globalData.systemInfo = res;
       },
     });
@@ -39,18 +40,18 @@ Page({
   /**
    * 生命周期函数--监听被展示时调用
    */
-  onShow: function() {
+  onShow: function () {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   },
 
-  login: function() {
+  login: function () {
     let that = this;
 
     wx.login({
@@ -60,20 +61,20 @@ Page({
     });
   },
 
-  loginSucceed: function(res) {
+  loginSucceed: function (res) {
     console.log("Login succeed.\nresponse:" + JSON.stringify(res));
 
     app.globalData.loginInfo = res.data.detail;
   },
 
-  loginFailed: function(error) {
+  loginFailed: function (error) {
     console.log("Login failed." + JSON.stringify(error));
   },
 
   /**
    * 跳转到拍照界面
    */
-  takePhoto: function() {
+  takePhoto: function () {
     wx.navigateTo({
       url: '../takePhoto/takePhoto'
     })
@@ -112,9 +113,27 @@ Page({
   },
 
   /**
+   * 正常的盲盒
+   */
+  goNormalBox() {
+    wx.navigateTo({
+      url: '../boxImage/box-image',
+    })
+  },
+
+  /**
+   * 隐式的盲盒
+   */
+  goInvisibleBox() {
+    wx.navigateTo({
+      url: '../boxVideo/box-video',
+    })
+  },
+
+  /**
    * 作品预览
    */
-  scanPhoto: function() {
+  scanPhoto: function () {
     let that = this;
 
     wx.getSetting({
@@ -145,7 +164,7 @@ Page({
   /**
    * 验证用户信息权限
    */
-  bindGetUserInfo: function(e) {
+  bindGetUserInfo: function (e) {
     let that = this;
 
     if (e.detail.userInfo) {
@@ -161,28 +180,78 @@ Page({
   /**
    * 验证用户信息权限，拒绝
    */
-  authDialogBack: function() {
+  authDialogBack: function () {
     this.setData({
       showPopup: false,
     });
   },
 
-  authSucceed: function(res) {
-    console.log("Auth succeed.\nresponse:" + JSON.stringify(res));
-
+  authSucceed: function (res) {
     wx.navigateTo({
       url: '../scanPhoto/scanPhoto',
     });
 
   },
 
-  authFailed: function(error) {
-    console.log("Auth failed." + JSON.stringify(error));
-
+  authFailed: function (error) {
     wx.navigateTo({
       url: '../scanPhoto/scanPhoto',
     });
-
   },
+
+  createQRCode: function () {
+    wx.request({
+      url: 'https://testwxapp.jiqid.net/miboard/index?id=1',
+      method: 'POST',
+      data: {},
+      success: function (res) {
+        if (res.data.data) {
+          if (qrcode) {
+            that.setData({
+              qrcode: that.data.qrcode.makeCode(res.data.data),
+              showLoading: false
+            })
+          } else {
+            that.setData({
+              qrcode: new QRCode('canvas', {
+                text: res.data.data,
+                width: 220,
+                height: 220,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H,
+              })
+            })
+            that.setData({
+              showLoading: false
+            })
+          }
+        }
+      }
+    })
+  },
+
+
+  save: function () {
+    let that = this;
+    wx.showActionSheet({
+      itemList: ['保存图片'],
+      success: function (res) {
+        if (res.tapIndex == 0) {
+          that.data.qrcode.exportImage(function (path) {
+            wx.saveImageToPhotosAlbum({
+              filePath: path,
+              success: function () {
+                wx.showToast({
+                  title: '保存成功'
+                })
+              }
+            })
+          })
+        }
+      }
+    })
+  },
+
 
 })

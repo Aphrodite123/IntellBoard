@@ -1,0 +1,14 @@
+<template name="dialog">
+
+	<view class="qd-dialog {{ isShowDialog ? 'qd-dialog--show' : '' }}">
+		<view class="qd-dialog--mask" bindtap='closeDialog'></view>
+		<view class="qd-dialog--container" bindtap="closeDialog">
+			<view class="flex-vertical">
+				<view class="save-image-root" bindtap="saveImage">
+					<text class="save-image-text">保存图片</text>
+				</view>
+			</view>
+		</view>
+	</view>
+	
+</template>

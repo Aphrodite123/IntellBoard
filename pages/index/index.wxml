@@ -2,23 +2,25 @@
 <import src="../../templates/auth.wxml" />
 
 <view class="container">
-  <image src='{{previewUrl}}' class='photoPreview'></image>
+	<image src='{{previewUrl}}' class='photoPreview'></image>
 
-  <view class="bottom;">
+	<view class="bottom;">
 
-    <view class="buttonBg" style="flex:1;" bindtap='scanPhoto'>
-      <image class="button" src='{{switchUrl}}' mode="scaleToFill" style="flex:1;"> </image>
-      <text class="switchText" bindtap='onSelectPhoto' style="flex:1;">我的作品</text>
-    </view>
+		<view class="buttonBg" style="flex:1;" bindtap='goNormalBox'>
+			<image class="button" src='{{switchUrl}}' mode="scaleToFill" style="flex:1;"> </image>
+			<text class="switchText" style="flex:1;">我的作品</text>
+		</view>
 
-    <view class="buttonBg" style="flex:1;" bindtap='takePhoto'>
-      <image class="buttonRight" src='{{saveUrl}}' mode="scaleToFill" style="flex:1;"> </image>
-      <text class="saveText" bindtap='onSavePhoto' style="flex:1;">开始制作</text>
-    </view>
+		<view class="buttonBg" style="flex:1;" bindtap='goInvisibleBox'>
+			<image class="buttonRight" src='{{saveUrl}}' mode="scaleToFill" style="flex:1;"> </image>
+			<text class="saveText" bindtap='onSavePhoto' style="flex:1;">开始制作</text>
+		</view>
 
-  </view>
+	</view>
 
 </view>
 
 <!-- 弹出层：授权 -->
 <template is="auth" data="{{showPopup: showPopup, canIUse: canIUse}}"></template>
+
+<canvas class='canvas' canvas-id='canvas' style="width: 100%;height: 100%" bindlongtap="save"></canvas>
