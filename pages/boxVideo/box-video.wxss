@@ -1235,10 +1235,6 @@ icon {
   height: 950rpx;
 }
 
-.visibility-hidden {
-  display: none;
-}
-
 .root {
   display: flex;
   width: 100%;
@@ -1246,4 +1242,26 @@ icon {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+.visibility-hidden {
+  display: none;
+}
+
+.display-flex {
+  display: flex;
+}
+
+.upper-image {
+  display: flex;
+  position: absolute;
+  width: 550rpx;
+  height: 900rpx;
+}
+
+.image-root {
+  position: relative;
+  width: 550rpx;
+  height: 900rpx;
+  margin-top: 20rpx;
 }

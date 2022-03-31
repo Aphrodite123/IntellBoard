@@ -25,6 +25,10 @@
   display: none;
 }
 
+.display-flex {
+  display: flex;
+}
+
 .upper-image {
   display: flex;
   position: absolute;
@@ -32,8 +36,7 @@
   height: 900rpx;
 }
 
-.image-root{
-  display: flex;
+.image-root {
   position: relative;
   width: 550rpx;
   height: 900rpx;

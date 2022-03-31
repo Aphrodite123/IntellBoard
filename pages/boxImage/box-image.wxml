@@ -7,9 +7,9 @@
 		<button class="page-body-button" type="primary" bindtap="goShare">分享</button>
 	</view>
 
-	<view class="image-root {{isShowShare?'':'image-hidden'}}">
-		<canvas class="bg-image {{isShowShare?'':'visibility-hidden'}}" canvas-id='shareCanvas'></canvas>
-		<image class="upper-image {{isShowShare?'':'visibility-hidden'}}" src="{{picUrl}}"></image>
+	<view class="image-root {{isShowShare?'display-flex':'visibility-hidden'}}">
+		<canvas class="bg-image" canvas-id='shareCanvas'></canvas>
+		<image class="upper-image" src="{{picUrl}}"></image>
 	</view>
 
 	<view class="btn-area  {{isShowShare?'':'visibility-hidden'}}">
